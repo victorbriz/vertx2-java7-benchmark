@@ -27,12 +27,6 @@ import java.util.ArrayList;
 
 public class WebServer extends Verticle implements Handler<HttpServerRequest> {
 
-  private final Buffer helloWorldBuffer = new Buffer("Hello, World!");
-  private final String helloWorldContentLength = String.valueOf(helloWorldBuffer.length());
-  private final DateFormat DATE_FORMAT = new SimpleDateFormat("EEE, dd MMM yyyyy HH:mm:ss z");
-  private final Random random = ThreadLocalRandom.current();
-  private String dateString;
-
   private static final String PATH_PLAINTEXT = "/plaintext";
   private static final String PATH_JSON = "/json";
   private static final String PATH_DB = "/db";
@@ -69,7 +63,14 @@ public class WebServer extends Verticle implements Handler<HttpServerRequest> {
   private static final String TEXT_WORLD = "World";
   private static final String TEXT_FORTUNE = "Fortune";
   private static final String TEXT_MATCHER = "matcher";
+  private static final String DATE_FORMAT_STRING = "EEE, dd MMM yyyyy HH:mm:ss z";
   private static final String TEMPLATE_FORTUNE = "<!DOCTYPE html><html><head><title>Fortunes</title></head><body><table><tr><th>id</th><th>message</th></tr><#list messages as message><tr><td>${message.id?html}</td><td>${message.message?html}</td></tr></#list></table></body></html>";
+
+  private final Buffer helloWorldBuffer = Buffer.buffer(HELLO_WORLD);
+  private final String helloWorldContentLength = String.valueOf(helloWorldBuffer.length());
+  private final DateFormat DATE_FORMAT = new SimpleDateFormat(DATE_FORMAT_STRING);
+  private final Random random = ThreadLocalRandom.current();
+  private String dateString;
   
   private Template ftlTemplate;
 
