@@ -260,7 +260,6 @@ public class WebServer extends Verticle implements Handler<HttpServerRequest> {
       }
       worlds.add(world);
       if (worlds.size() == this.queries) {
-        // All queries have completed; send the response.
         String result = worlds.encode();
         sendResponse(req, result);
       }
