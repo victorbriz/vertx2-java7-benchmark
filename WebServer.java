@@ -88,7 +88,7 @@ public class WebServer extends Verticle implements Handler<HttpServerRequest> {
   }
 
   @Override
-  public void handle(HttpServerRequest req) {
+  public void handle(final HttpServerRequest req) {
     switch (req.path()) {
       case PATH_PLAINTEXT:
         handlePlainText(req);
