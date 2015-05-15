@@ -152,7 +152,7 @@ public class WebServer extends Verticle implements Handler<HttpServerRequest> {
     });
   }
 
-  private void handlePlainText(HttpServerRequest req) {
+  private void handlePlainText(final HttpServerRequest req) {
     HttpServerResponse resp = req.response();
     setHeaders(resp, RESPONSE_TYPE_PLAIN, helloWorldContentLength);
     resp.end(helloWorldBuffer);
