@@ -118,7 +118,7 @@ public class WebServer extends Verticle implements Handler<HttpServerRequest> {
     dateString = DATE_FORMAT.format(new Date());
   }
 
-  private void handleFortunes(HttpServerRequest req) {
+  private void handleFortunes(final HttpServerRequest req) {
     final HttpServerResponse resp = req.response();
     
     vertx.eventBus().send(
