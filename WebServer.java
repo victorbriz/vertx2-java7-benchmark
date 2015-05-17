@@ -158,7 +158,7 @@ public class WebServer extends Verticle implements Handler<HttpServerRequest> {
     resp.end(helloWorldBuffer);
   }
 
-  private void handleJson(HttpServerRequest req) {
+  private void handleJson(final HttpServerRequest req) {
     Buffer buff = new Buffer(Json.encode(Collections.singletonMap(TEXT_MESSAGE, HELLO_WORLD)));
     HttpServerResponse resp = req.response();
     setHeaders(resp, RESPONSE_TYPE_JSON, String.valueOf(buff.length()));
