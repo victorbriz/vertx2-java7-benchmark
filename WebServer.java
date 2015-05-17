@@ -212,7 +212,7 @@ public class WebServer extends Verticle implements Handler<HttpServerRequest> {
         handler);
   }
 
-  private void updateRandom(JsonObject json) {
+  private void updateRandom(final JsonObject json) {
     vertx.eventBus().send(
         MONGO_ADDRESS,
         new JsonObject()
