@@ -184,7 +184,7 @@ public class WebServer extends Verticle implements Handler<HttpServerRequest> {
     return world;
   }
 
-  private void handleDBMongo(final HttpServerRequest req, boolean randomUpdates) {
+  private void handleDBMongo(final HttpServerRequest req, final boolean randomUpdates) {
     int queriesParam = 1;
     try {
       queriesParam = Integer.parseInt(req.params().get(TEXT_QUERIES));
