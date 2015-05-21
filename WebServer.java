@@ -223,7 +223,7 @@ public class WebServer extends Verticle implements Handler<HttpServerRequest> {
              );
   }
 
-  private void sendResponse(final HttpServerRequest req, String result) {
+  private void sendResponse(final HttpServerRequest req, final String result) {
     Buffer buff = new Buffer(result);
     HttpServerResponse resp = req.response();
     setHeaders(resp, RESPONSE_TYPE_JSON, String.valueOf(buff.length()));
