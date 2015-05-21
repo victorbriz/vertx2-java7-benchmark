@@ -230,7 +230,7 @@ public class WebServer extends Verticle implements Handler<HttpServerRequest> {
     resp.end(buff);
   }
 
-  private void setHeaders(HttpServerResponse resp, String contentType, String contentLength) {
+  private void setHeaders(final HttpServerResponse resp, String contentType, String contentLength) {
     resp.putHeader(HEADER_CONTENT_TYPE, contentType);
     resp.putHeader(HEADER_CONTENT_LENGTH, contentLength);
     resp.putHeader(HEADER_SERVER, HEADER_SERVER_VERTX );
